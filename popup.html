@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'self'">
+  <title>Right-Click Tab Menu</title>
+  <link href="tailwind.css" rel="stylesheet">
+  <style>
+    html, body {
+      background-color: transparent;
+    }
+    .dropdown:hover > .dropdown-content {
+      display: block;
+    }
+
+    /* 基本のスタイル（ライトモード用） */
+    :root {
+      --main-bg: white;
+      --text-color: #1f2937; /* text-gray-800 */
+      --hover-bg: #f3f4f6;   /* bg-gray-100 */
+      --border-color: #e5e7eb; /* border-gray-200 */
+      --secondary-bg: white;
+      --secondary-hover-bg: #f3f4f6;
+    }
+
+    /* ダークモードのスタイル */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --main-bg: #374151; /* bg-gray-700 */
+        --text-color: #f9fafb; /* text-gray-50 */
+        --hover-bg: #4b5563;   /* bg-gray-600 */
+        --border-color: #4b5563; /* border-gray-600 */
+        --secondary-bg: #374151;
+        --secondary-hover-bg: #4b5563;
+      }
+    }
+    
+    /* 変数を適用 */
+    #main-menu {
+      background-color: var(--main-bg);
+      color: var(--text-color);
+      border: 1px solid var(--border-color);
+      box-shadow:
+        0 1px 1px hsl(0deg 0% 0% / 0.075),
+        0 2px 2px hsl(0deg 0% 0% / 0.075),
+        0 4px 4px hsl(0deg 0% 0% / 0.075),
+        0 8px 8px hsl(0deg 0% 0% / 0.075),
+        0 16px 16px hsl(0deg 0% 0% / 0.075);
+    }
+    .menu-item:hover { background-color: var(--hover-bg); }
+    hr { border-color: var(--border-color); }
+    #window-list-container {
+      background-color: var(--secondary-bg);
+      border: 1px solid var(--border-color);
+      border-top: 0;
+      left: -1px;
+      right: -1px;
+    }
+    #window-list-container a { color: var(--text-color); }
+    #window-list-container a:hover { background-color: var(--secondary-hover-bg); }
+
+    /* テキストスクロールアニメーション */
+    .title-wrapper {
+      overflow: hidden;
+      white-space: nowrap;
+      width: 100%;
+    }
+    .marquee {
+      display: inline-block;
+      padding-left: 100%;
+      animation: marquee 10s linear infinite;
+    }
+    @keyframes marquee {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+  </style>
+</head>
+<body class="w-[250px] text-sm font-sans">
+
+  <div id="main-menu">
+    <div class="menu-item px-3 py-2 cursor-pointer whitespace-nowrap overflow-hidden text-ellipsis rounded-t-md" id="newTabRight">右隣に新しいタブを開く</div>
+    <div class="menu-item px-3 py-2 cursor-pointer whitespace-nowrap overflow-hidden text-ellipsis" id="duplicateTab">タブを複製</div>
+    <hr class="my-1 border-t">
+    <div class="menu-item px-3 py-2 cursor-pointer whitespace-nowrap overflow-hidden text-ellipsis" id="closeTabsRight">右側のタブを閉じる</div>
+    <hr class="my-1 border-t">
+    <div class="menu-item px-3 py-2 cursor-pointer whitespace-nowrap overflow-hidden text-ellipsis" id="moveToNewWindow">タブを新しいウィンドウに移動</div>
+    <div class="dropdown relative rounded-b-md" id="moveToAnotherWindowContainer">
+      <div class="menu-item px-3 py-2 cursor-pointer whitespace-nowrap overflow-hidden text-ellipsis rounded-b-md">タブを別のウィンドウに移動...</div>
+      <ul id="window-list-container" class="dropdown-content absolute hidden z-10">
+      </ul>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

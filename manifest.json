@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Right-Click Tab Menu",
+  "version": "1.0",
+  "description": "タブの右クリックメニューを再現し、タブ操作を補助する拡張機能です。",
+  "permissions": [
+    "activeTab",
+    "tabs"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "tab.png",
+      "48": "tab.png",
+      "128": "tab.png"
+    }
+  },
+  "icons": {
+    "16": "tab.png",
+    "48": "tab.png",
+    "128": "tab.png"
+  },
+  "commands": {
+    "duplicate-tab": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+D",
+        "mac": "Command+Shift+D"
+      },
+      "description": "現在のタブを複製する"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}
