@@ -1,4 +1,14 @@
+function localizeHtmlPage() {
+  // Localize using data-i18n attribute
+  const i18nElements = document.querySelectorAll('[data-i18n]');
+  i18nElements.forEach(element => {
+    const messageKey = element.getAttribute('data-i18n');
+    element.textContent = chrome.i18n.getMessage(messageKey);
+  });
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
+  localizeHtmlPage();
   const tab = await getCurrentTab();
   const allWindows = await chrome.windows.getAll();
 
@@ -52,7 +62,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const newWindowLink = document.createElement('a');
     newWindowLink.className = 'rounded-t py-2 px-4 block whitespace-nowrap';
     newWindowLink.href = '#';
-    newWindowLink.textContent = '新規ウィンドウ';
+    newWindowLink.textContent = chrome.i18n.getMessage('newWindow');
     newWindowLink.addEventListener('click', (e) => {
       e.preventDefault();
       chrome.windows.create({ tabId: currentActiveTab.id });
@@ -88,10 +98,10 @@ document.addEventListener('DOMContentLoaded', async () => {
       titleWrapper.className = 'title-wrapper';
       const text = document.createElement('span');
       const tabCount = tabsInWindow.length;
-      const title = activeTab.title || '名称未設定のタブ';
+      const title = activeTab.title || chrome.i18n.getMessage('untitledTab');
       if (tabCount > 1) {
         const otherTabsCount = tabCount - 1;
-        text.textContent = `${title} | 他${otherTabsCount}個のタブ`;
+        text.textContent = chrome.i18n.getMessage('otherTabsCount', [title, otherTabsCount]);
       } else {
         text.textContent = title;
       }

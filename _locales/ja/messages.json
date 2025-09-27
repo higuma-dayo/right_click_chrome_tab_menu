@@ -1,0 +1,45 @@
+{
+  "extName": {
+    "message": "Right-Click Tab Menu"
+  },
+  "extDescription": {
+    "message": "macOS(Tahoe 26.0)で、Chromeをフルスクリーンにした時にタブの右クリックが反応しなくなったので、よく使うメニュー内容を再現し、タブ操作を補助する拡張機能です。"
+  },
+  "commandDuplicateTab": {
+    "message": "現在のタブを複製する"
+  },
+  "newTabRight": {
+    "message": "右隣に新しいタブを開く"
+  },
+  "duplicateTab": {
+    "message": "タブを複製"
+  },
+  "closeTabsRight": {
+    "message": "右側のタブを閉じる"
+  },
+  "moveToNewWindow": {
+    "message": "タブを新しいウィンドウに移動"
+  },
+  "moveToAnotherWindow": {
+    "message": "タブを別のウィンドウに移動..."
+  },
+  "newWindow": {
+    "message": "新規ウィンドウ"
+  },
+  "untitledTab": {
+    "message": "名称未設定のタブ"
+  },
+  "otherTabsCount": {
+    "message": "$TITLE$ | 他$COUNT$個のタブ",
+    "placeholders": {
+      "title": {
+        "content": "$1",
+        "example": "Google"
+      },
+      "count": {
+        "content": "$2",
+        "example": "5"
+      }
+    }
+  }
+}

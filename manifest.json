@@ -1,8 +1,9 @@
 {
   "manifest_version": 3,
-  "name": "Right-Click Tab Menu",
+  "name": "__MSG_extName__",
   "version": "1.0",
-  "description": "タブの右クリックメニューを再現し、タブ操作を補助する拡張機能です。",
+  "description": "__MSG_extDescription__",
+  "default_locale": "ja",
   "permissions": [
     "activeTab",
     "tabs"
@@ -26,7 +27,7 @@
         "default": "Ctrl+Shift+D",
         "mac": "Command+Shift+D"
       },
-      "description": "現在のタブを複製する"
+      "description": "__MSG_commandDuplicateTab__"
     }
   },
   "background": {

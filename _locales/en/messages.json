@@ -1,0 +1,45 @@
+{
+  "extName": {
+    "message": "Right-Click Tab Menu"
+  },
+  "extDescription": {
+    "message": "This extension helps you manage tabs by recreating common menu items, as right-clicking on tabs no longer works in full-screen mode on macOS (Tahoe 26.0)."
+  },
+  "commandDuplicateTab": {
+    "message": "Duplicate the current tab"
+  },
+  "newTabRight": {
+    "message": "New Tab to the Right"
+  },
+  "duplicateTab": {
+    "message": "Duplicate Tab"
+  },
+  "closeTabsRight": {
+    "message": "Close Tabs to the Right"
+  },
+  "moveToNewWindow": {
+    "message": "Move Tab to New Window"
+  },
+  "moveToAnotherWindow": {
+    "message": "Move Tab to Another Window..."
+  },
+  "newWindow": {
+    "message": "New Window"
+  },
+  "untitledTab": {
+    "message": "Untitled Tab"
+  },
+  "otherTabsCount": {
+    "message": "$TITLE$ | $COUNT$ other tabs",
+    "placeholders": {
+      "title": {
+        "content": "$1",
+        "example": "Google"
+      },
+      "count": {
+        "content": "$2",
+        "example": "5"
+      }
+    }
+  }
+}
